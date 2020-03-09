@@ -19,7 +19,7 @@ namespace Gis.Controllers
         
         public async Task<List<MyModelDto>> Handle(GetAllRoadsQuery request, CancellationToken cancellationToken)
         {
-            var data = await _webGisContext.RoadUsChar.ToListAsync(cancellationToken: cancellationToken);
+            var data = await _webGisContext.Roads.ToListAsync(cancellationToken: cancellationToken);
 
             return null;
         }

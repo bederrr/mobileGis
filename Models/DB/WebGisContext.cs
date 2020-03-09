@@ -8,30 +8,27 @@ namespace Gis.Models.DB
             : base(options)
         {
         }
-        public virtual DbSet<RoadUsChar> RoadUsChar { get; set; }
+        public virtual DbSet<Road> Roads { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-            {
                 optionsBuilder.UseSqlServer("Server=BEDERKB\\SQLEXPRESS;Database=webGis;Trusted_Connection=True;",
                     x => x.UseNetTopologySuite());
-            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<RoadUsChar>(entity =>
+            modelBuilder.Entity<Road>(entity =>
             {
                 entity.HasNoKey();
-
-                entity.ToTable("road_us_char");
-
+                entity.ToTable("Roads");
                 entity.Property(e => e.Id)
                     .HasColumnName("id")
                     .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.RoadGeom).HasColumnName("road_geom");
+                entity.Property(e => e.RoadGeom)
+                    .HasColumnName("road_geom");
             });
         }
     }
