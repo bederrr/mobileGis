@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Konstantin\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Konstantin\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Gis.-2124371152.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Konstantin\RiderProjects\Gis" t="IncludeRecursive">
+    <e p="C:\git\mobileGis" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="Controllers" t="Include">
-        <e p="MyModelController.cs" t="Include" />
+        <e p="GetAllRoadsHandler.cs" t="Include" />
+        <e p="GetAllRoadsQuery.cs" t="Include" />
+        <e p="GetRoadsByAreaHandler.cs" t="Include" />
+        <e p="GetRoadsByAreaQuery.cs" t="Include" />
+        <e p="RoadsController.cs" t="Include" />
       </e>
       <e p="Gis.csproj" t="IncludeRecursive" />
       <e p="Gis.sln" t="IncludeFlat" />
       <e p="Models" t="Include">
-        <e p="MyModel.cs" t="Include" />
+        <e p="DB" t="Include">
+          <e p="RoadUsChar.cs" t="Include" />
+          <e p="webGisContext.cs" t="Include" />
+        </e>
         <e p="MyModelDto.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive">
@@ -30,5 +36,7 @@
       </e>
       <e p="Startup.cs" t="Include" />
     </e>
+    <e p="C:\Users\Konstantin\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Konstantin\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_Gis.955665999.00" t="ExcludeRecursive" />
   </component>
 </project>

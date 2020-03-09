@@ -1,12 +1,15 @@
+using Gis.Models.DB;
+using MediatR;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+
 namespace Gis
 {
-    using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Hosting;
-    using Microsoft.OpenApi.Models;
-    
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -19,6 +22,9 @@ namespace Gis
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddDbContext<WebGisContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("WebGis"), builder => builder.UseNetTopologySuite()));
+            services.AddMediatR(typeof(Startup));
 
             services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo
             {
@@ -33,9 +39,9 @@ namespace Gis
 
             app.UseSwagger();
 
-            app.UseSwaggerUI(c => 
+            app.UseSwaggerUI(c =>
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "GIS Api v1"));
-            
+
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();

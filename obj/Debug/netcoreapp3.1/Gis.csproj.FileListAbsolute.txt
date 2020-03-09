@@ -59,3 +59,5 @@ C:\git\mobileGis\obj\Debug\netcoreapp3.1\Gis.MvcApplicationPartsAssemblyInfo.cac
 C:\git\mobileGis\obj\Debug\netcoreapp3.1\EFCoreSqlServerNetTopologySuite.cs
 C:\git\mobileGis\obj\Debug\netcoreapp3.1\Gis.dll
 C:\git\mobileGis\obj\Debug\netcoreapp3.1\Gis.pdb
+C:\git\mobileGis\bin\Debug\netcoreapp3.1\MediatR.dll
+C:\git\mobileGis\bin\Debug\netcoreapp3.1\MediatR.Extensions.Microsoft.DependencyInjection.dll
