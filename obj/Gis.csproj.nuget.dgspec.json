@@ -1,25 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Konstantin\\RiderProjects\\Gis\\Gis.csproj": {}
+    "C:\\git\\mobileGis\\Gis.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Konstantin\\RiderProjects\\Gis\\Gis.csproj": {
+    "C:\\git\\mobileGis\\Gis.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Konstantin\\RiderProjects\\Gis\\Gis.csproj",
+        "projectUniqueName": "C:\\git\\mobileGis\\Gis.csproj",
         "projectName": "Gis",
-        "projectPath": "C:\\Users\\Konstantin\\RiderProjects\\Gis\\Gis.csproj",
-        "packagesPath": "C:\\Users\\Konstantin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Konstantin\\RiderProjects\\Gis\\obj\\",
+        "projectPath": "C:\\git\\mobileGis\\Gis.csproj",
+        "packagesPath": "C:\\Users\\BederKB\\.nuget\\packages\\",
+        "outputPath": "C:\\git\\mobileGis\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Konstantin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\BederKB\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\BederKB\\Desktop\\Новая папка": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -36,7 +42,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer.Design": {
+              "target": "Package",
+              "version": "[1.1.6, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.2, )"
             },
@@ -63,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
