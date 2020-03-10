@@ -1,4 +1,3 @@
-using Gis.Models.DB;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +9,8 @@ using Microsoft.OpenApi.Models;
 
 namespace Gis
 {
+    using Models;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)

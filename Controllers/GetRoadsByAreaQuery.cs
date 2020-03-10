@@ -5,7 +5,7 @@ using NetTopologySuite.Geometries;
 
 namespace Gis.Controllers
 {
-    public class GetRoadsByAreaQuery : IRequest<List<MyModelDto>>
+    public class GetRoadsByAreaQuery : IRequest<List<PlaceDto>>
     {
         public Coordinate[] Coordinates { get; }
 

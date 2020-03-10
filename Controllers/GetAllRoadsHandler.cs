@@ -2,26 +2,27 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Gis.Models;
-using Gis.Models.DB;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gis.Controllers
 {
-    public class GetAllRoadsHandler : IRequestHandler<GetAllRoadsQuery, List<MyModelDto>>
+    using System.Linq;
+
+    public class GetAllRoadsHandler : IRequestHandler<GetAllRoadsQuery, List<PlaceDto>>
     {
-        private readonly WebGisContext _webGisContext;
+        private readonly WebGisContext webGisContext;
         
         public GetAllRoadsHandler(WebGisContext webGisContext)
         {
-            _webGisContext = webGisContext;
+            this.webGisContext = webGisContext;
         }
         
-        public async Task<List<MyModelDto>> Handle(GetAllRoadsQuery request, CancellationToken cancellationToken)
+        public async Task<List<PlaceDto>> Handle(GetAllRoadsQuery request, CancellationToken cancellationToken)
         {
-            var data = await _webGisContext.Roads.ToListAsync(cancellationToken: cancellationToken);
+            var data = await webGisContext.Places.ToListAsync(cancellationToken: cancellationToken);
 
-            return null;
+            return data.Select(x => new PlaceDto { Name = x.Name }).ToList();
         }
     }
 }

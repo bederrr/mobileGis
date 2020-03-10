@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Gis.Controllers
 {
-    public class GetAllRoadsQuery : IRequest<List<MyModelDto>>
+    public class GetAllRoadsQuery : IRequest<List<PlaceDto>>
     {
         
     }
