@@ -21,9 +21,9 @@
         }
 
         [HttpGet("getByArea")]
-        public async Task<IActionResult> GetRoadsByArea(double a, double b, double c, double d)
+        public async Task<IActionResult> GetRoadsByArea(double x1, double y1, double x2, double y2)
         {
-            var query = new GetRoadsByAreaQuery(a, b, c, d);
+            var query = new GetRoadsByAreaQuery(x1, y1, x2, y2);
             var result = await _mediator.Send(query);
 
             return result != null ?

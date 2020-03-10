@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Gis.Models;
 using Gis.Models.DB;
 using MediatR;
-using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using NetTopologySuite.Geometries;
 
 namespace Gis.Controllers
 {
@@ -21,11 +21,15 @@ namespace Gis.Controllers
 
         public async Task<List<MyModelDto>> Handle(GetRoadsByAreaQuery request, CancellationToken cancellationToken)
         {
-            var param = new SqlParameter("@str", "POLYGON((-88 34,-87 32, -87 32, -87 34, -88 34))");
+            var linearRing = new LinearRing(request.Coordinates);
 
-            var result = await _webGisContext.Roads.FromSqlRaw("GetByArea @str", param)
-                .ToListAsync(cancellationToken);
-            
+            linearRing = linearRing.IsCCW ? linearRing 
+                : linearRing.Reverse() as LinearRing;
+
+            var searchArea = new Polygon(linearRing) { SRID = 4326 };
+
+            var result = await _webGisContext.Roads
+                .Where(x => x.RoadGeom.Within(searchArea)).ToListAsync(cancellationToken);
             return result.Select(x => new MyModelDto {Id = x.Id}).ToList();
         }
     }
